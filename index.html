@@ -1,1 +1,779 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Sewa Drone By Fikri </title>
+  <meta name="description" content="Fikri Drone - Jasa sewa drone untuk dokumentasi, event, properti, dan kebutuhan video udara.">
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --card: #0d1b2e;
+      --card2: #12243a;
+      --text: #ffffff;
+      --muted: #a9b8c9;
+      --accent: #5ee7ff;
+      --accent2: #25d366;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 85% 5%, rgba(94,231,255,.14), transparent 28%),
+        radial-gradient(circle at 10% 20%, rgba(37,211,102,.08), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7,17,31,.78);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      background: white;
+      color: #07111f !important;
+      padding: 10px 17px;
+      border-radius: 12px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 8px 13px;
+      border: 1px solid rgba(94,231,255,.25);
+      background: rgba(94,231,255,.08);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 7vw, 76px);
+      line-height: .98;
+      letter-spacing: -4px;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 570px;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 800;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    .btn-primary {
+      background: var(--accent2);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 460px;
+      border-radius: 30px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(94,231,255,.16), transparent 50%),
+        linear-gradient(180deg, #152c45, #07111f);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 80px rgba(0,0,0,.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drone {
+      font-size: 150px;
+      filter: drop-shadow(0 25px 30px rgba(0,0,0,.45));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-18px) rotate(2deg); }
+    }
+
+    .hero-info {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+    }
+
+    .hero-info strong {
+      display: block;
+      font-size: 18px;
+    }
+
+    .hero-info small {
+      color: var(--muted);
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      padding: 28px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, var(--card2), var(--card));
+      border: 1px solid var(--border);
+    }
+
+    .service-icon {
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .service h3 {
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PRICING */
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .price-card {
+      padding: 30px;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .price-card.featured {
+      border-color: rgba(94,231,255,.5);
+      box-shadow: 0 20px 60px rgba(94,231,255,.08);
+    }
+
+    .popular {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--accent);
+      color: #07111f;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .price-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: 900;
+      margin: 15px 0;
+    }
+
+    .price span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .features {
+      list-style: none;
+      margin: 20px 0 25px;
+    }
+
+    .features li {
+      color: var(--muted);
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: var(--accent2);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    /* WHY US */
+
+    .why {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .why-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+    }
+
+    .why-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      color: var(--muted);
+    }
+
+    /* BOOKING */
+
+    .booking {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(94,231,255,.12), transparent 40%),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 55px 30px;
+      text-align: center;
+    }
+
+    .booking h2 {
+      font-size: clamp(32px,5vw,50px);
+      letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+
+    .booking p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 45px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social a:hover {
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 65px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-card {
+        min-height: 340px;
+      }
+
+      .drone {
+        font-size: 110px;
+      }
+
+      .services,
+      .pricing,
+      .why {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      h1 {
+        letter-spacing: -2.5px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-card {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">Sky<span>Rent</span> Drone</a>
+
+      <div class="nav-links">
+        <a href="#layanan">Layanan</a>
+        <a href="#harga">Harga</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#booking" class="nav-button">Booking</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <div class="badge">🚁 JASA SEWA DRONE PROFESIONAL</div>
+
+        <h1>
+          Abadikan<br>
+          dari <span>langit.</span>
+        </h1>
+
+        <p>
+          Sewa drone untuk dokumentasi event, properti,
+          konten media sosial, cinematic video, dan berbagai
+          kebutuhan aerial photography.
+        </p>
+
+        <div class="buttons">
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/6285282934624?text=Halo%20SkyRent%20Drone,%20saya%20ingin%20booking%20drone."
+            target="_blank">
+            💬 Booking via WhatsApp
+          </a>
+
+          <a class="btn btn-secondary" href="#harga">
+            Lihat Harga
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="drone">🚁</div>
+
+        <div class="hero-info">
+          <strong>Drone + Pilot</strong>
+          <small>Siap digunakan untuk berbagai kebutuhan dokumentasi.</small>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- LAYANAN -->
+  <section id="layanan">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Layanan Kami</h2>
+        <p>Pilih layanan sesuai kebutuhan dokumentasi kamu.</p>
+      </div>
+
+      <div class="services">
+
+        <div class="service">
+          <div class="service-icon">🎥</div>
+          <h3>Video Cinematic</h3>
+          <p>
+            Pengambilan video udara untuk konten cinematic,
+            promosi, dan kebutuhan profesional.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">🏠</div>
+          <h3>Dokumentasi Properti</h3>
+          <p>
+            Foto dan video udara untuk rumah, tanah,
+            gedung, villa, dan properti lainnya.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">🎉</div>
+          <h3>Event & Acara</h3>
+          <p>
+            Dokumentasi udara untuk pernikahan,
+            gathering, konser, dan acara lainnya.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- HARGA -->
+  <section id="harga">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Paket Sewa</h2>
+        <p>Harga dapat disesuaikan dengan kebutuhan proyek.</p>
+      </div>
+
+      <div class="pricing">
+
+        <div class="price-card">
+          <h3>Basic</h3>
+
+          <div class="price">
+            Rp300K <span>/ sesi</span>
+          </div>
+
+          <ul class="features">
+            <li>Drone</li>
+            <li>Durasi hingga 1 jam</li>
+            <li>Foto udara</li>
+            <li>File hasil dokumentasi</li>
+          </ul>
+
+          <a
+            class="btn btn-secondary"
+            href="https://wa.me/6285282934624?text=Halo,%20saya%20tertarik%20paket%20Basic%20SkyRent%20Drone."
+            target="_blank">
+            Pilih Paket
+          </a>
+        </div>
+
+
+        <div class="price-card featured">
+          <div class="popular">POPULER</div>
+
+          <h3>Professional</h3>
+
+          <div class="price">
+            Rp500K <span>/ sesi</span>
+          </div>
+
+          <ul class="features">
+            <li>Drone + Pilot</li>
+            <li>Durasi hingga 2 jam</li>
+            <li>Foto & video</li>
+            <li>Pengambilan cinematic</li>
+            <li>File hasil dokumentasi</li>
+          </ul>
+
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/6285282934624?text=Halo,%20saya%20tertarik%20paket%20Professional%20SkyRent%20Drone."
+            target="_blank">
+            Pilih Paket
+          </a>
+        </div>
+
+
+        <div class="price-card">
+          <h3>Custom</h3>
+
+          <div class="price">
+            Hubungi <span>kami</span>
+          </div>
+
+          <ul class="features">
+            <li>Drone sesuai kebutuhan</li>
+            <li>Durasi fleksibel</li>
+            <li>Drone + Pilot</li>
+            <li>Video cinematic</li>
+            <li>Project khusus</li>
+          </ul>
+
+          <a
+            class="btn btn-secondary"
+            href="https://wa.me/6285282934624?text=Halo,%20saya%20ingin%20konsultasi%20project%20drone."
+            target="_blank">
+            Konsultasi
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TENTANG -->
+  <section id="tentang">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Kenapa SkyRent?</h2>
+        <p>Kami membantu membuat dokumentasi udara lebih mudah.</p>
+      </div>
+
+      <div class="why">
+
+        <div class="why-card">
+          <h3>🚁 Peralatan Siap</h3>
+          <p>
+            Drone siap digunakan untuk berbagai kebutuhan
+            dokumentasi udara.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3>👨‍✈️ Dengan Pilot</h3>
+          <p>
+            Kamu bisa menyewa drone sekaligus pilot
+            untuk membantu proses pengambilan gambar.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3>🎬 Hasil Berkualitas</h3>
+          <p>
+            Pengambilan gambar diarahkan untuk menghasilkan
+            footage yang cocok untuk konten dan dokumentasi.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3>💬 Mudah Booking</h3>
+          <p>
+            Konsultasikan kebutuhan project langsung melalui
+            WhatsApp.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BOOKING -->
+  <section id="booking">
+    <div class="container">
+
+      <div class="booking">
+
+        <h2>Siap terbang?</h2>
+
+        <p>
+          Ceritakan kebutuhan kamu kepada kami.
+          Mulai dari dokumentasi acara sampai video cinematic,
+          kami siap membantu.
+        </p>
+
+        <div class="buttons" style="justify-content:center;">
+
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/6285282934624?text=Halo%20SkyRent%20Drone,%20saya%20ingin%20booking%20drone.%20Bisa%20konsultasi%3F"
+            target="_blank">
+            💬 Chat WhatsApp
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="https://www.instagram.com/"
+            target="_blank">
+            📸 Instagram
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+
+      <div>
+        <strong style="color:white;">SkyRent Drone</strong>
+        <br>
+        <small>Jasa sewa drone & aerial photography.</small>
+      </div>
+
+      <div class="social">
+        <a href="#layanan">Layanan</a>
+        <a href="#harga">Harga</a>
+        <a href="#booking">Booking</a>
+      </div>
+
+    </div>
+
+    <div class="container" style="margin-top:25px;">
+      <small>
+        © 2026 SkyRent Drone. All rights reserved.
+      </small>
+    </div>
+  </footer>
+
+</body>
+</html>
